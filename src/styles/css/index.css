@@ -1,0 +1,71 @@
+#navbar {
+  background-color: #050d18;
+}
+#navbar #name {
+  color: white;
+  letter-spacing: 0.1rem;
+  margin: 1rem 0;
+}
+#navbar .img-fluid {
+  height: 7rem;
+  margin-top: 1rem;
+  width: 7rem;
+  border: 0.5rem solid #2c2f3f;
+}
+#navbar #social-links {
+  width: 100%;
+  justify-content: center;
+  display: flex;
+  margin-bottom: 2rem;
+}
+#navbar #social-links .social-link {
+  position: relative;
+  padding: 0;
+  border-radius: 50%;
+  background-color: #2c2f3f;
+  margin: 0 0.3rem;
+  height: 2rem;
+  width: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#navbar #social-links .social-link .icon {
+  position: absolute;
+  color: white;
+  height: 45%;
+  width: 45%;
+}
+
+#hero {
+  height: 100%;
+}
+#hero .img {
+  background-color: red !important;
+  height: 100%;
+  width: 100%;
+}
+#hero .img::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.4));
+}
+#hero #name {
+  #color: white;
+  position: absolute;
+  top: 100%;
+}
+
+:root {
+  overflow: auto;
+}
+
+body, :root, #___gatsby, #gatsby-focus-wrapper {
+  height: 100%;
+}
+
+/*# sourceMappingURL=index.css.map */

@@ -1,0 +1,11 @@
+@use 'navbar';
+@use 'hero';
+ 
+:root {
+    overflow: auto;
+}
+
+body, :root, #___gatsby, #gatsby-focus-wrapper {
+    height: 100%;
+}
+
