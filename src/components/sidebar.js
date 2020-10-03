@@ -3,15 +3,16 @@ import Img from "gatsby-image";
 import { FaHome } from "react-icons/fa";
 import { socialLinks, navLinks } from "./constants";
 
-export default function Navbar({ data: { id, image, name, role, social } }) {
+export default function Sidebar({
+  data: { name, role, social, image, sidebarIsOpen, setSidebarIsOpen },
+}) {
+  console.log(name);
   return (
-    <div
-      id="navbar"
-      className="col-xl-2 d-none h-100 d-xl-flex flex-column align-items-center"
-    >
+    <div id="sidebar" className={sidebarIsOpen && "ttl-0"}>
       <Img
         fluid={image.childImageSharp.fluid}
-        className="rounded-circle img-fluid"
+        className="img-fluid rounded-circle"
+        imgStyle={{ objectPosition: "top" }}
       />
       <h5 id="name">{name}</h5>
       <div id="social-links">
@@ -29,7 +30,7 @@ export default function Navbar({ data: { id, image, name, role, social } }) {
       {navLinks.map(({ name, link, icon }, index) => {
         return (
           <div
-            className="row gorder mb-3 w-100  border-danger align-items-center"
+            className="row mb-3 w-100 align-items-center nav-item"
             key={index}
             style={{ marginLeft: "3rem" }}
           >

@@ -1,8 +1,31 @@
+@use "sass:list";
+
+@import "../../../node_modules/bootstrap/scss/functions";
+@import "../../../node_modules/bootstrap/scss/variables";
+@import "../../../node_modules/bootstrap/scss/mixins";
+
 $black-1: #272829;
 $black-2: #050d18;
 $grey: #2c2f3f;
-$blue-dark:  #173b6c;
+$blue-dark: #173b6c;
 $blue-light: #37b3ed;
 $blue-lighter: #149ddd;
 $blue-white: #f5f8fd;
 $light: #f8f9fa;
+$co-yellow: #f2f6d0;
+
+$sec-pad: 60px 0;
+
+$grid-breakpoints: (
+  // xxxs: 0,
+  // xxs: 320px,
+  // xs: 568px,
+  xs: 0px,
+  sm: 576px,
+  md: 768px,
+  md2: 850px,
+  lg: 992px,
+  xl: 1200px,
+  xl2: 1440px,
+  xl3: 1600px
+);

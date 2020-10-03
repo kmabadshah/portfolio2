@@ -1,9 +1,10 @@
-import React from "react";
-import Navbar from "../components/navbar";
+import React, { useState, useEffect } from "react";
+import Sidebar from "../components/sidebar";
+import About from "../components/about";
 import Hero from "../components/hero";
 import { graphql } from "gatsby";
+import { FaBars, FaTimes } from "react-icons/fa";
 import "../../node_modules/bootstrap/dist/css/bootstrap.min.css";
-
 import "../styles/css/index.css";
 
 export default function Main({ data }) {
@@ -12,11 +13,47 @@ export default function Main({ data }) {
   } = data;
   const hero = edges[0].node;
 
+  const [sidebarIsOpen, setSidebarIsOpen] = useState(false);
+
+  useEffect(() => {
+    document.body.style.overflow = sidebarIsOpen ? "hidden" : "auto";
+  }, [sidebarIsOpen]);
+
   return (
-    <div className="row no-gutters h-100">
-      <Navbar data={hero} />
-      <div className="col-xl-10 h-100">
-        <Hero data={hero} />
+    <div id="wrapper">
+      <Sidebar
+        data={{
+          ...hero,
+          sidebarIsOpen,
+          setSidebarIsOpen,
+        }}
+      />
+
+      <div id="content">
+        <FaBars
+          id="btn-toggle-sidebar-1"
+          className={sidebarIsOpen && "tsc-0"}
+          onClick={(e) => {
+            setSidebarIsOpen(true);
+          }}
+        />
+        <FaTimes
+          id="btn-toggle-sidebar-2"
+          className={!sidebarIsOpen && "tsc-0"}
+          onClick={(e) => {
+            setSidebarIsOpen(false);
+          }}
+        />
+        <Hero
+          data={{
+            ...hero,
+            sidebarIsOpen,
+            setSidebarIsOpen,
+          }}
+        />
+        <div id="bottom" onClick={() => setSidebarIsOpen(false)}>
+          <About data={{ ...hero }} />
+        </div>
       </div>
     </div>
   );

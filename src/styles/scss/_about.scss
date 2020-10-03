@@ -1,0 +1,13 @@
+@import "variables";
+
+#about {
+    padding: $sec-pad;
+
+    #title {
+        color: $blue-dark;
+    }
+
+    #desc {
+        margin-top: 1.5rem;
+    }
+}

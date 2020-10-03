@@ -1,11 +1,104 @@
-@use 'navbar';
+@use 'sidebar';
 @use 'hero';
- 
+@use "about";
+
+@import "variables";
+
 :root {
-    overflow: auto;
+  overflow: auto;
 }
 
-body, :root, #___gatsby, #gatsby-focus-wrapper {
-    height: 100%;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
+#wrapper,
+body,
+:root,
+#___gatsby,
+#gatsby-focus-wrapper {
+  height: 100%;
+  width: 100%;
+}
+
+.op-1 {
+  opacity: 1 !important;
+}
+
+.op-0 {
+  opacity: 0 !important;
+}
+
+#content {
+  height: 100%;
+  transition: all 0.3s ease-out;
+
+  #btn-toggle-sidebar-1 {
+    position: fixed;
+    top: 1rem;
+    right: 1.5rem;
+    font-size: 1.5rem;
+    color: $co-yellow;
+    z-index: 1;
+    cursor: pointer;
+    transition: all 0.3s ease-out;
+  }
+
+  #btn-toggle-sidebar-2 {
+    position: fixed;
+    top: 1rem;
+    right: 1.5rem;
+    font-size: 1.5rem;
+    color: $co-yellow;
+    z-index: 1;
+    cursor: pointer;
+    transition: all 0.3s ease-out;
+  }
+}
+
+.ttl-0 {
+  transform: none !important;
+}
+
+.ttl-1 {
+  transform: translateX(-100%) !important;
+}
+
+.tsc-1 {
+  transform: scale(1) !important;
+}
+
+.tsc-0 {
+  transform: scale(0) !important;
+}
+
+.bar {
+  background-color: $blue-light;
+  height: 0.15rem;
+  width: 3rem;
+  margin: 1rem 0;
+}
+
+@media only screen and (min-width: 0) {
+  #content {
+    margin-left: 0;
+
+    #btn-toggle-sidebar-1,
+    #btn-toggle-sidebar-2 {
+      transform: scale(1);
+    }
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  #content {
+    margin-left: 15rem;
+
+    #btn-toggle-sidebar-1,
+    #btn-toggle-sidebar-2 {
+      transform: scale(0);
+    }
+  }
+}
