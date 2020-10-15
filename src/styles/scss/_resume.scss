@@ -1,0 +1,39 @@
+@import "variables";
+#resume {
+    padding: $sec-pad;
+
+    #title {
+        color: $blue-darker;
+        font-weight: bold;
+    }
+
+    #desc {
+        padding-bottom: 2.5rem;
+    }
+
+    #summary, .edu-item, .prof-item {
+        border-left: 2px solid $blue-dark;
+        padding-left: 1.5rem;
+        position: relative;
+
+        &::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -9px;
+            height: 1rem;
+            width: 1rem;
+            border-radius: 50px;
+            background: white;
+            border: 2px solid $blue-dark;
+        }
+    }
+
+    .year {
+        background-color: $blue-lightest;
+        display: inline;
+        padding: 5px 15px;
+        margin-bottom: 1rem;
+        font-weight: 500;
+    }
+}

@@ -1,13 +1,63 @@
 @import "variables";
 
 #about {
-    padding: $sec-pad;
+  padding: $sec-pad;
 
-    #title {
-        color: $blue-dark;
+  #sec_name {
+    color: $blue-darker;
+    font-weight: bold;
+  }
+
+  #desc {
+    margin: 1.5rem 0;
+  }
+
+  .img-fluid {
+    margin-top: 6px;
+    max-width: 90%;
+    transition: all 0.3s ease-out;
+
+    @include media-breakpoint-up(lg) {
+      max-height: 85%;
+      max-width: 90%;
     }
 
-    #desc {
-        margin-top: 1.5rem;
+    * {
+      max-height: 100%;
+      max-width: 100%;
+      object-position: top !important;
     }
+  }
+
+  #title {
+    color: $blue-darker;
+    font-weight: bold;
+    margin-top: 1.5rem;
+    margin-bottom: 1rem;
+
+    @include media-breakpoint-up(lg) {
+      margin: 0;
+    }
+  }
+
+  #under_title {
+    margin-bottom: 0.5rem;
+    font-style: italic;
+  }
+
+  .info-item {
+    //border: 1px solid red;
+    display: flex;
+    align-items: center;
+    margin: 0.5rem 0;
+
+    svg {
+      color: $blue-lighter;
+    }
+
+    p:nth-child(2) {
+      font-weight: bold;
+      margin: 0 0.25rem 0 0.5rem;
+    }
+  }
 }

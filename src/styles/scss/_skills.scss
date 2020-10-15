@@ -1,0 +1,22 @@
+@import "variables";
+
+#skills {
+    padding: $sec-pad;
+    background-color: $blue-white;
+    
+    #sec_name { color: $blue-darker; }
+
+    #desc {
+        margin: 0 0 1rem 0;   
+    }
+
+
+    .progress {
+        border-radius: 0;
+        height: 0.6rem;
+
+        .progress-bar {
+            background-color: $blue-lighter;
+        }
+    }
+}

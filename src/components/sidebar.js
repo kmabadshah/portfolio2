@@ -6,7 +6,6 @@ import { socialLinks, navLinks } from "./constants";
 export default function Sidebar({
   data: { name, role, social, image, sidebarIsOpen, setSidebarIsOpen },
 }) {
-  console.log(name);
   return (
     <div id="sidebar" className={sidebarIsOpen && "ttl-0"}>
       <Img

@@ -1,0 +1,29 @@
+#isotope {
+    display: flex;
+    flex-flow: column;
+    #iso-buttons {
+        background-color: white;
+        width: fit-content;
+        align-self: center;
+        border-radius: 50px;
+        margin: 2rem 0 1rem 0;
+        box-shadow: 0 0 4px rgba(0, 0, 0, 0.05);
+
+        .iso-button {
+            border: none;
+            text-transform: uppercase;
+            background-color: white;
+            margin: 0.5rem 1.5rem;
+        }
+    }
+
+    #iso-items {
+        height: 100%;
+        width: 100%;
+
+        .image {
+            height: 10rem;
+            width: 10rem;
+        }
+    }
+}

@@ -1,0 +1,19 @@
+@import "variables";
+
+#facts {
+  padding: $sec-pad;
+  text-align: justify;
+
+  #items {
+    padding: 2rem;
+
+    svg {
+      color: $blue-lighter;
+      font-size: 3rem;
+    }
+  }
+
+  #sec-title {
+      color: $blue-darker;
+  }
+}

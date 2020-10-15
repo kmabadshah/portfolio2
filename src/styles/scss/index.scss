@@ -1,11 +1,21 @@
 @use 'sidebar';
 @use 'hero';
 @use "about";
+@use "facts";
+@use "skills";
+@use "resume";
+@use "portfolio";
+@use "isotope";
 
 @import "variables";
 
 :root {
   overflow: auto;
+}
+
+p {
+  margin: 0;
+  padding: 0;
 }
 
 * {
@@ -75,10 +85,10 @@ body,
 }
 
 .bar {
-  background-color: $blue-light;
-  height: 0.15rem;
+  background-color: $blue-lighter;
+  height: 0.175rem;
   width: 3rem;
-  margin: 1rem 0;
+  margin: 1rem 0 1.25rem 0;
 }
 
 @media only screen and (min-width: 0) {
@@ -94,11 +104,51 @@ body,
 
 @media only screen and (min-width: 1200px) {
   #content {
-    margin-left: 15rem;
+    margin-left: 17rem;
 
     #btn-toggle-sidebar-1,
     #btn-toggle-sidebar-2 {
       transform: scale(0);
     }
   }
+}
+
+.ease-out-elastic {
+    animation: easeOutElastic 0.3s;
+}
+
+
+@keyframes easeOutElastic {
+	  0% {
+		    transform: translateX(0%);
+	  }
+
+	  16% {
+		    transform: translateX(-132.27%);
+	  }
+
+	  28% {
+		    transform: translateX(-86.88%);
+	  }
+
+	  44% {
+		    transform: translateX(-104.63%);
+	  }
+
+	  59% {
+		    transform: translateX(-98.36%);
+	  }
+
+	  73% {
+		    transform: translateX(-100.58%);
+	  }
+
+	  88% {
+		    transform: translateX(-99.8%);
+	  }
+
+	  100% {
+		    transform: translateX(-100%);
+	  }
+
 }
