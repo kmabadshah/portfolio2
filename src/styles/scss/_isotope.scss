@@ -1,29 +1,81 @@
+@import "variables";
+
 #isotope {
-    display: flex;
-    flex-flow: column;
-    #iso-buttons {
-        background-color: white;
-        width: fit-content;
-        align-self: center;
-        border-radius: 50px;
-        margin: 2rem 0 1rem 0;
-        box-shadow: 0 0 4px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-flow: column;
+  #iso-buttons {
+    background-color: white;
+    width: fit-content;
+    align-self: center;
+    border-radius: 50px;
+    margin: 3rem 0 2rem 0;
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.05);
 
-        .iso-button {
-            border: none;
-            text-transform: uppercase;
-            background-color: white;
-            margin: 0.5rem 1.5rem;
-        }
+    .iso-button {
+      border: none;
+      text-transform: uppercase;
+      background-color: white;
+      margin: 0.5rem 1.5rem;
+      transition: all 0.3s ease-out;
+
+      &:hover {
+        color: $blue-light;
+      }
+    }
+  }
+
+  #iso-items {
+    height: 100%;
+    width: 100%;
+
+    .item-sizer,
+    .iso-item {
+      width: 100%;
+
+      @include media-breakpoint-up(md) {
+        width: 45%;
+        margin-left: 5%;
+      }
+
+      @include media-breakpoint-up(lg) {
+        width: 30%;
+        margin-left: 3%;
+      }
     }
 
-    #iso-items {
-        height: 100%;
-        width: 100%;
+    .iso-item {
+      overflow: hidden;
 
-        .image {
-            height: 10rem;
-            width: 10rem;
+      div {
+        transition: all 0.2s linear;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 0%;
+        background-color: rgba(20, 157, 221, 0.75);
+      }
+
+      &:hover {
+        div {
+          height: 20%;
         }
+      }
+
+      &::before {
+        transition: 0.3s all ease-out;
+        content: "";
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: transparent;
+        z-index: 1;
+      }
+
+      &:hover::before {
+        background: rgba(255, 255, 255, 0.25);
+      }
     }
+  }
 }

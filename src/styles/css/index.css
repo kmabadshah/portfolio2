@@ -290,7 +290,7 @@
   width: fit-content;
   align-self: center;
   border-radius: 50px;
-  margin: 2rem 0 1rem 0;
+  margin: 3rem 0 2rem 0;
   box-shadow: 0 0 4px rgba(0, 0, 0, 0.05);
 }
 #isotope #iso-buttons .iso-button {
@@ -298,14 +298,60 @@
   text-transform: uppercase;
   background-color: white;
   margin: 0.5rem 1.5rem;
+  transition: all 0.3s ease-out;
+}
+#isotope #iso-buttons .iso-button:hover {
+  color: #37b3ed;
 }
 #isotope #iso-items {
   height: 100%;
   width: 100%;
 }
-#isotope #iso-items .image {
-  height: 10rem;
-  width: 10rem;
+#isotope #iso-items .item-sizer,
+#isotope #iso-items .iso-item {
+  width: 100%;
+}
+@media (min-width: 768px) {
+  #isotope #iso-items .item-sizer,
+#isotope #iso-items .iso-item {
+    width: 45%;
+    margin-left: 5%;
+  }
+}
+@media (min-width: 992px) {
+  #isotope #iso-items .item-sizer,
+#isotope #iso-items .iso-item {
+    width: 30%;
+    margin-left: 3%;
+  }
+}
+#isotope #iso-items .iso-item {
+  overflow: hidden;
+}
+#isotope #iso-items .iso-item div {
+  transition: all 0.2s linear;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 0%;
+  background-color: rgba(20, 157, 221, 0.75);
+}
+#isotope #iso-items .iso-item:hover div {
+  height: 20%;
+}
+#isotope #iso-items .iso-item::before {
+  transition: 0.3s all ease-out;
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: transparent;
+  z-index: 1;
+}
+#isotope #iso-items .iso-item:hover::before {
+  background: rgba(255, 255, 255, 0.25);
 }
 
 :root {

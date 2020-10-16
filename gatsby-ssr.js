@@ -8,7 +8,7 @@
 
 const React = require("react");
 
-exports.onRenderBody = ({ setPostBodyComponents }) => {
+exports.onRenderBody = ({ setPostBodyComponents, setHeadComponents }) => {
   setPostBodyComponents([
     <script
       src="https://code.jquery.com/jquery-3.5.1.min.js"
@@ -16,5 +16,15 @@ exports.onRenderBody = ({ setPostBodyComponents }) => {
       crossorigin="anonymous"
     ></script>,
     <script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.js"></script>,
+    <script type="text/javascript" src="/venobox/venobox.min.js"></script>,
+  ]);
+
+  setHeadComponents([
+    <link
+      rel="stylesheet"
+      href="/venobox/venobox.min.css"
+      type="text/css"
+      media="screen"
+    />,
   ]);
 };

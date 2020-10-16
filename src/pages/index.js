@@ -1,3 +1,4 @@
+/* global $ */
 import React, { useState, useEffect } from "react";
 import Sidebar from "../components/sidebar";
 import About from "../components/about";
