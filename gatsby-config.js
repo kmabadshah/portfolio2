@@ -6,6 +6,12 @@ module.exports = {
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
+    // {
+    //   resolve: `gatsby-plugin-layout`,
+    //   options: {
+    //     component: require.resolve(`./src/components/wrapper`),
+    //   },
+    // },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -39,6 +45,9 @@ module.exports = {
           `skills`,
           `resume`,
           `portfolio`,
+          `services`,
+          `testimonials`,
+          `contact`,
         ],
         queryLimit: 1000,
       },

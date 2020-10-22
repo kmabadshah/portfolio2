@@ -1,0 +1,74 @@
+@import "variables";
+
+#testimonials {
+  padding: $sec-pad;
+  background-color: $blue-white;
+
+  #title {
+    color: $blue-darker;
+  }
+
+  #carousel {
+    margin-top: 2rem;
+
+    .flickity-page-dots {
+      .dot.is-selected {
+        background: $blue-light;
+      }
+
+      .dot {
+        width: 0.75rem;
+        height: 0.75rem;
+      }
+    }
+
+    .carousel-cell {
+      width: 100%;
+
+      @include media-breakpoint-up(md) {
+          width: 50%;
+      }
+
+      @include media-breakpoint-up(lg) {
+          width: 33.33%;
+      }
+
+      .image {
+        border-radius: 50% !important;
+        height: 5rem;
+        width: 5rem;
+        margin: 1.5rem auto 1rem auto;
+      }
+
+      .quote-left,
+      .quote-right {
+        color: $blue-light;
+        font-size: 2rem;
+      }
+
+      .quote-left {
+        padding-bottom: 10px;
+      }
+      .quote-right {
+        padding-top: 10px;
+      }
+
+      .card {
+        box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
+        border: none;
+        margin: 0;
+      }
+      .card::after {
+        content: "";
+        width: 0;
+        height: 0;
+        border-top: 20px solid #fff;
+        border-right: 20px solid transparent;
+        border-left: 20px solid transparent;
+        position: absolute;
+        bottom: -20px;
+        left: calc(50% - 20px);
+      }
+    }
+  }
+}

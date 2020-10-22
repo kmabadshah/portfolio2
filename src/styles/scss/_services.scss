@@ -1,0 +1,44 @@
+@import "variables";
+
+#services {
+  padding: $sec-pad;
+
+  #title {
+    color: $blue-darker;
+  }
+
+  #items {
+    margin: 2rem 0;
+    #item {
+      margin: 1rem 0;
+
+      &:hover {
+        .icon {
+          background-color: $light;
+          color: $blue-lighter;
+        }
+      }
+
+      .desc {
+        @include media-breakpoint-up(md) {
+          font-size: 0.8rem;
+        }
+      }
+
+      .icon {
+        margin-top: 7.5px;
+        background-color: $blue-lighter;
+        border-radius: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 3rem;
+        width: 3rem;
+        font-size: 1.25rem;
+        color: $light;
+        border: 1px solid $blue-lighter;
+        transition: all 0.2s ease-out;
+      }
+    }
+  }
+}

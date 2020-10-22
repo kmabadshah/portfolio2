@@ -1,0 +1,87 @@
+@import "variables";
+
+#proj_template {
+  position: relative;
+  height: 100%;
+
+  #navbar {
+    background-color: $light;
+    color: black;
+    margin: 0;
+
+    .row {
+      padding: 1rem;
+    }
+  }
+
+  #carousel-and-info {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: repeat(6, auto);
+    padding: 2rem 1rem 0 1rem;
+
+    #carousel {
+      grid-column: 1 / 13;
+      grid-row: 1 / 4;
+
+      @include media-breakpoint-up(lg) {
+          grid-row: 1 / 6;
+      }
+
+      .carousel-cell {
+        height: 12.5rem;
+        width: 100%;
+        border: 1px solid rgba(0, 0, 0, 0.1);
+
+        @include media-breakpoint-up(sm) {
+          height: 15rem;
+        }
+
+        @include media-breakpoint-up(md) {
+          height: 20rem;
+        }
+
+        @include media-breakpoint-up(lg) {
+          height: 30rem;
+        }
+
+        @include media-breakpoint-up(xl) {
+          height: 35rem;
+        }
+      }
+
+      .flickity-page-dots {
+        margin-top: 0.75rem;
+        text-align: left;
+
+        .dot.is-selected {
+          background: $blue-light;
+        }
+
+        .dot {
+          width: 0.75rem;
+          height: 0.75rem;
+        }
+      }
+    }
+
+    #info {
+      margin-top: 3rem;
+      padding: 0.5rem;
+      grid-column: 1 / 13;
+      grid-row: 4 / 7;
+      z-index: 1;
+      background-color: light;
+      border: none !important;
+      box-shadow: 0 20px 50px #dbd3d8;
+
+      @include media-breakpoint-up(lg) {
+          grid-column: 8 / 13;
+      }
+    }
+  }
+
+  #desc {
+    padding: 3rem 1rem;
+  }
+}

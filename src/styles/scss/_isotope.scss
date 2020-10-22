@@ -53,6 +53,28 @@
         right: 0;
         height: 0%;
         background-color: rgba(20, 157, 221, 0.75);
+        z-index: 2;
+
+        .btn-more, .btn-details {
+          transition: all 0.3s ease-out;
+          overflow: hidden;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          background-color: transparent;
+          width: 100%;
+          border: none;
+          color: $light;
+          font-size: 1.25rem;
+
+          &:hover {
+            background-color: $blue-lighter;
+          }
+        }
+
+        .btn-more {
+          border-right: 0.5px dotted $light;
+        }
       }
 
       &:hover {
@@ -61,7 +83,7 @@
         }
       }
 
-      &::before {
+      .img-fluid::before {
         transition: 0.3s all ease-out;
         content: "";
         position: absolute;
@@ -72,9 +94,15 @@
         background: transparent;
         z-index: 1;
       }
+      
+      // .img-fluid:hover::before {
+      //   background: rgba(255, 255, 255, 0.25);
+      // }
 
-      &:hover::before {
-        background: rgba(255, 255, 255, 0.25);
+      &:hover {
+        .img-fluid::before {
+          background: rgba(255, 255, 255, 0.25);
+        }
       }
     }
   }

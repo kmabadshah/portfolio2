@@ -7,6 +7,9 @@ import Facts from "../components/facts";
 import Skills from "../components/skills";
 import Resume from "../components/resume";
 import Portfolio from "../components/portfolio";
+import Services from "../components/services";
+import Testimonials from "../components/testimonials";
+import Contact from "../components/contact";
 
 import { graphql } from "gatsby";
 import { FaBars, FaTimes } from "react-icons/fa";
@@ -20,13 +23,16 @@ export default function Main({ data }) {
   const skills = data.allStrapiSkills.edges[0].node;
   const resume = data.allStrapiResume.edges[0].node;
   const portfolio = data.allStrapiPortfolio.edges[0].node;
+  const services = data.allStrapiServices.edges[0].node;
+  const testimonials = data.strapiTestimonials;
+  const contact = data.strapiContact;
 
   const [intItems, setIntItems] = useState({});
 
   const [sidebarIsOpen, setSidebarIsOpen] = useState(false);
 
   useEffect(() => {
-    document.body.style.overflow = sidebarIsOpen ? "hidden" : "auto";
+    $(":root").css("overflow-y", sidebarIsOpen ? "hidden" : "auto");
   }, [sidebarIsOpen]);
 
   useEffect(() => {
@@ -37,8 +43,12 @@ export default function Main({ data }) {
     }
   }, [intItems]);
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
-    <div id="wrapper">
+    <div id="wrapper" className="h-100">
       <Sidebar
         data={{
           ...hero,
@@ -75,6 +85,9 @@ export default function Main({ data }) {
           <Skills data={{ ...skills }} />
           <Resume data={{ ...resume }} />
           <Portfolio data={{ ...portfolio }} />
+          <Services data={{ ...services }} />
+          <Testimonials data={{ ...testimonials }} />
+          <Contact data={{ ...contact }} />
         </div>
       </div>
     </div>
@@ -205,11 +218,26 @@ export const query = graphql`
           categories {
             id
             name
-            images {
-              localFile {
+            projects {
+              id
+              category
+              client
+              project_date
+              project_url
+              desc
+              image_featured {
                 childImageSharp {
                   fluid(quality: 100, webpQuality: 100) {
                     ...GatsbyImageSharpFluid_withWebp_tracedSVG
+                  }
+                }
+              }
+              images_detail {
+                localFile {
+                  childImageSharp {
+                    fluid(quality: 100, webpQuality: 100) {
+                      ...GatsbyImageSharpFluid_withWebp_tracedSVG
+                    }
                   }
                 }
               }
@@ -217,6 +245,43 @@ export const query = graphql`
           }
         }
       }
+    }
+
+    allStrapiServices {
+      edges {
+        node {
+          desc
+          services {
+            desc
+            id
+            title
+          }
+        }
+      }
+    }
+
+    strapiTestimonials {
+      desc
+      testimonials {
+        id
+        image {
+          childImageSharp {
+            fluid {
+              ...GatsbyImageSharpFluid_withWebp_tracedSVG
+            }
+          }
+        }
+        name
+        quote
+        tag
+      }
+    }
+
+    strapiContact {
+      desc
+      location
+      email
+      call
     }
   }
 `;

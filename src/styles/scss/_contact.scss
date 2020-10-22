@@ -1,0 +1,28 @@
+@import "variables";
+
+
+#contact {
+    padding: $sec-pad;
+
+    #title {
+        color: $blue-darker;
+    }
+
+    .icon {
+        background-color: $blue-lighter-2;
+        color: $blue-lighter;
+        border-radius: 50%;
+        height: 2.5rem; width: 2.5rem;
+        display: flex; align-items: center;
+        justify-content: center;
+        font-size: 1.25rem;
+
+        &, & * {
+            padding: 0; margin: 0;
+        }
+    }
+
+    #map {
+        height: 50rem; width: 50rem;
+    }
+}
