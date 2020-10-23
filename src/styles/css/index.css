@@ -12,19 +12,22 @@
   transition: all 0.3s ease-out;
   display: flex;
 }
-#sidebar .nav-item div,
-#sidebar .nav-item a {
+#sidebar .nav-item, #sidebar .nav-item * {
+  cursor: pointer;
+  text-decoration: none;
   transition: all 0.3s ease-out;
 }
-#sidebar .nav-item:hover a {
-  color: #f8f9fa !important;
-  transform: scale(1.25);
-  margin: auto 2.5px;
+#sidebar .active div {
+  color: #149ddd !important;
+}
+#sidebar .active p {
+  color: #f5f8fd !important;
 }
 #sidebar .nav-item:hover div {
   color: #149ddd !important;
-  transform: scale(1.25);
-  margin: auto 2.5px;
+}
+#sidebar .nav-item:hover p {
+  color: #f5f8fd !important;
 }
 #sidebar #name {
   color: white;
@@ -87,7 +90,7 @@
   }
 }
 #hero {
-  height: 100%;
+  height: 100vh;
 }
 #hero .image {
   height: 100%;
@@ -479,6 +482,10 @@
 #contact #title {
   color: #173b6c;
 }
+#contact .card {
+  box-shadow: 0 0 24px 0 rgba(0, 0, 0, 0.12);
+  border: none;
+}
 #contact .icon {
   background-color: #dff3fc;
   color: #149ddd;
@@ -495,13 +502,15 @@
   margin: 0;
 }
 #contact #map {
-  height: 50rem;
-  width: 50rem;
+  flex-grow: 1;
+}
+#contact #form_name, #contact #form_email, #contact #form_subject, #contact #form_message {
+  box-shadow: none;
+  border-radius: 0;
 }
 
 #proj_template {
   position: relative;
-  height: 100%;
 }
 #proj_template #navbar {
   background-color: #f8f9fa;
@@ -584,16 +593,6 @@
 :root {
   overflow-x: hidden;
   overflow-y: auto;
-}
-
-body {
-  height: 100vh;
-  width: 100%;
-}
-
-#___gatsby, #gatsby-focus-wrapper {
-  height: 100%;
-  width: 100%;
 }
 
 p {

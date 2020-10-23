@@ -12,7 +12,10 @@ import Testimonials from "../components/testimonials";
 import Contact from "../components/contact";
 
 import { graphql } from "gatsby";
-import { FaBars, FaTimes } from "react-icons/fa";
+import { FaBars, FaTimes, FaAngleUp } from "react-icons/fa";
+import { animateScroll as scroll } from "react-scroll";
+import { ScrollUp } from "../components/constants";
+import { InView } from "react-intersection-observer";
 import "../../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import "../styles/css/index.css";
 
@@ -27,28 +30,19 @@ export default function Main({ data }) {
   const testimonials = data.strapiTestimonials;
   const contact = data.strapiContact;
 
-  const [intItems, setIntItems] = useState({});
-
   const [sidebarIsOpen, setSidebarIsOpen] = useState(false);
+  const [scrollUpIsShowing, showScrollUp] = useState(false);
 
   useEffect(() => {
     $(":root").css("overflow-y", sidebarIsOpen ? "hidden" : "auto");
   }, [sidebarIsOpen]);
 
-  useEffect(() => {
-    if (Object.keys(intItems).length) {
-      for (const [key, value] of Object.entries(intItems)) {
-        if (value.isIntersecting) value.target.classList.add("ttl-0", "op-1");
-      }
-    }
-  }, [intItems]);
-
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
+  // useEffect(() => {
+  //   window.scrollTo(0, 0);
+  // }, []);
 
   return (
-    <div id="wrapper" className="h-100">
+    <div id="wrapper">
       <Sidebar
         data={{
           ...hero,
@@ -79,16 +73,34 @@ export default function Main({ data }) {
             setSidebarIsOpen,
           }}
         />
-        <div id="bottom" onClick={() => setSidebarIsOpen(false)}>
-          <About data={{ ...about, setIntItems, intItems }} />
-          <Facts data={{ ...facts, setIntItems, intItems }} />
-          <Skills data={{ ...skills }} />
-          <Resume data={{ ...resume }} />
-          <Portfolio data={{ ...portfolio }} />
-          <Services data={{ ...services }} />
-          <Testimonials data={{ ...testimonials }} />
-          <Contact data={{ ...contact }} />
-        </div>
+        <InView threshold={0.1}>
+          {({ inView, ref, entry }) => {
+            console.log(inView);
+            showScrollUp(inView);
+            return (
+              <div
+                id="bottom"
+                ref={ref}
+                onClick={() => setSidebarIsOpen(false)}
+              >
+                <ScrollUp
+                  onClick={() => scroll.scrollToTop()}
+                  show={scrollUpIsShowing}
+                >
+                  <FaAngleUp />
+                </ScrollUp>
+                <About data={{ ...about }} />;
+                <Facts data={{ ...facts }} />
+                <Skills data={{ ...skills }} />
+                <Resume data={{ ...resume }} />
+                <Portfolio data={{ ...portfolio }} />
+                <Services data={{ ...services }} />
+                <Testimonials data={{ ...testimonials }} />
+                <Contact data={{ ...contact }} />
+              </div>
+            );
+          }}
+        </InView>
       </div>
     </div>
   );

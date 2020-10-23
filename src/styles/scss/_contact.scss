@@ -8,6 +8,11 @@
         color: $blue-darker;
     }
 
+    .card {
+        box-shadow: 0 0 24px 0 rgba(0, 0, 0, 0.12) ;      
+                      border: none;
+    }
+
     .icon {
         background-color: $blue-lighter-2;
         color: $blue-lighter;
@@ -23,6 +28,11 @@
     }
 
     #map {
-        height: 50rem; width: 50rem;
+        flex-grow: 1;
     }
+
+    #form_name, #form_email, #form_subject, #form_message {
+        box-shadow: none;
+        border-radius: 0;
+}
 }
